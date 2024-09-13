@@ -1,0 +1,14 @@
+#!/bin/bash
+if (( $# != 2 )); then 
+  exit 0; 
+fi
+select operaciones in Multiplicacion Suma Resta Division Cerrar 
+do
+  case $operaciones in
+    Multiplicacion) echo "Resultado de multiplicacion : $(( $1*$2 ))" ;;
+    Suma) echo "Resultado de suma : $(( $1+$2 ))" ;;
+    Resta) echo "Resultado de resta : $(( $1-$2 ))" ;;
+    Division) echo "Resultado de division : $(( $1/$2 ))" ;;
+    Cerrar|*) exit ;;
+  esac
+done
