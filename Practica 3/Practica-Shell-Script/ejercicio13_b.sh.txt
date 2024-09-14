@@ -1,0 +1,10 @@
+#!/bin/bash
+select opcion in Listar "Donde estoy" "Quien esta"
+do
+  case $opcion in
+    Listar) echo "Contenido del directorio actual : $(ls)" ;;
+    "Donde estoy") echo "Esta ubicado en el directorio : $(pwd)" ;;
+    "Quien esta") echo "Usuarios conectados : $(who)" ;;
+    *) exit ;;
+  esac 
+done
