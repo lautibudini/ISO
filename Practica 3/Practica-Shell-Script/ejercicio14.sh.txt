@@ -1,0 +1,37 @@
+#!/bin/bash
+
+#Reviso que se ingresen los tres parámetros pedidos
+if [ $# -ne 3 ]
+then
+  exit 1
+fi
+
+#Me fijo si existe el directorio pasado
+if ! [ -e $1 ]
+then
+  echo "Ingrese un path existente"
+  exit 
+fi
+
+cd $1
+echo "Antes de modificarlos : $(ls)"
+
+#Chequeo como quiere modificarlo
+if [ "$2" = "-a" ];
+then
+  for i in $(ls)
+  do
+    mv $i $i$3;
+  done
+elif [ "$2" = "-b" ];
+then
+  for i in $(ls)
+  do
+    mv $i $3$i;
+  done
+else
+  echo "No ingreso la opción a o b"
+fi
+
+echo "Despues de modificarlos : $(ls)"
+exit 0

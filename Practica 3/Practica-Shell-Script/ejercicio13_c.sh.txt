@@ -1,0 +1,18 @@
+#!/bin/bash
+if [ $# -ne 1 ]
+then
+  exit;
+else
+  if [ -e "$1" ] #Si existe entonces me fijo que es : 
+  then
+    if [ -d "$1" ]
+    then
+      echo "Es un directorio"
+    else
+      echo "Es un archivo"
+    fi
+  else 
+    mkdir "$1" #Sino creo el directorio
+  fi
+fi
+exit 0
