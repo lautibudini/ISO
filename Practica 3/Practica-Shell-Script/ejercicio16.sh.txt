@@ -1,0 +1,15 @@
+#!/bin/bash
+if [ $# -ne 1 ];
+then
+  echo "La cantidad de parametros es incorrecta"
+  exit 1
+fi
+for i in $( cat /etc/passwd )
+do
+  nhome=$( echo "$i" | cut -d: -f 6 )
+  user=$( echo "$i" | cut -d: -f 1 )
+
+  find $nhome -type f -name "*.$1" | echo "$user $(wc -l)" >> reporte.txt
+
+  # otra opción de hacerlo :  ls $nhome | grep "\.$1$" | echo "$user $(wc -l)" >> reporte.txt 
+done
