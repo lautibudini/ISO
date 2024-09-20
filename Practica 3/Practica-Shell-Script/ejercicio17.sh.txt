@@ -1,0 +1,7 @@
+#!/bin/bash
+echo "Antes del cambio $(ls)"
+echo "Despues del cambio : "
+for i in $( ls )
+do
+  echo $( echo $i | tr -d 'aA' | tr 'b-zB-Z' 'B-Zb-z')
+done
